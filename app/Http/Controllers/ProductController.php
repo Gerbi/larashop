@@ -17,7 +17,9 @@ class ProductController extends Controller
 
     public function create()
     {
-        return view('admin.products.create');
+        $product = new Product();
+
+        return view('admin.products.create', compact('product'));
     }
 
     public function store(Request $request)
@@ -69,6 +71,13 @@ class ProductController extends Controller
     {
         $product = Product::find($id);
         return view('admin.products.edit', compact('product'));
+    }
+
+    public function show($id)
+    {
+        $product = Product::find($id);
+
+        return view('admin.products.details', compact('product'));
     }
 
     public function update(Request $request, $id)
