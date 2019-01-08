@@ -1,18 +1,18 @@
 <div class="form-group" {{$errors->has('name') ? 'has-error' : ''}}>
     {{ Form::label('product_name', 'Product Name') }}
-    {{ Form::text('name','', ['class' => 'form-control border-input','placeholder'=> 'Dell Predator']) }}
+    {{ Form::text('name',$product->name, ['class' => 'form-control border-input','placeholder'=> 'Dell Predator']) }}
     <span class="text-danger">{{$errors->has('name') ? $errors->first('name') : ''}}</span>
 </div>
 
 <div class="form-group" {{$errors->has('price') ? 'has-error' : ''}}>
     {{ Form::label('price', 'Price') }}
-    {{ Form::text('price','', ['class' => 'form-control border-input','placeholder'=> '$2500']) }}
+    {{ Form::text('price',$product->price, ['class' => 'form-control border-input','placeholder'=> '$2500']) }}
     <span class="text-danger">{{$errors->has('price') ? $errors->first('price') : ''}}</span>
 </div>
 
 <div class="form-group" {{$errors->has('description') ? 'has-error' : ''}}>
     {{ Form::label('description', 'Description') }}
-    {{ Form::textarea('description','', ['class' => 'form-control border-input','placeholder'=> 'Description']) }}
+    {{ Form::textarea('description',$product->description, ['class' => 'form-control border-input','placeholder'=> 'Description']) }}
     <span class="text-danger">{{$errors->has('description') ? $errors->first('description') : ''}}</span>
 </div>
 

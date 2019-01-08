@@ -1,7 +1,7 @@
 @extends('admin.layouts.master')
 
 @section('page')
-    Details Product
+    Edit Product
 @stop
 
 @section('content')
@@ -12,12 +12,12 @@
 
             <div class="card">
                 <div class="header">
-                    <h4 class="title">ProductdProduct</h4>
+                    <h4 class="title">Edit Product</h4>
                 </div>
 
                 <div class="content">
 
-                    {!! Form::open(['url' => 'products','files'=>'true']) !!}
+                    {!! Form::open(['url' => ['products',$product->id],'files'=>'true','method'=>'PUT']) !!}
                     <div class="row">
                         <div class="col-md-12">
 

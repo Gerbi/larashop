@@ -64,4 +64,56 @@ class ProductController extends Controller
         //Redirect back
         return redirect('products/');
     }
+
+    public function edit($id)
+    {
+        $product = Product::find($id);
+        return view('admin.products.edit', compact('product'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        //find the product
+        $product = Product::find($id);
+
+        //Validate the form
+        $request->validate([
+            'name' => 'required',
+            'price' => 'required',
+            'description' => 'required'
+        ]);
+
+        //check if here is any image
+        if ($request->hasFile('image'))
+        {
+            //check if the old image exists inside folder
+            if (file_exists(public_path('uploads/').$product->image))
+            {
+                unlink(public_path('uploads/').$product->image);
+            }
+
+            //Upload the new image
+            $image = $request->image;
+            $image->move('uploads', $image->getClientOriginalName());
+
+            $product->image = $request->image->getClientOriginalName();
+        }
+
+        //updating the product
+        $product->update([
+            'name' => $request->name,
+            'description' => $request->description,
+            'price' => $request->price,
+            'image' => $product->image
+        ]);
+
+        //store a image session
+        $request->session()->flash('msg','Product has been updated');
+
+        //redirect
+        return redirect('/products');
+
+    }
+
+
 }
