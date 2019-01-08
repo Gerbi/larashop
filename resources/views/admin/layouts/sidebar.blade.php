@@ -21,13 +21,13 @@
                 </a>
             </li>
             <li>
-                <a href="{{url('products')}}">
+                <a href="{{url('/products')}}">
                     <i class="ti-view-list-alt"></i>
                     <p>View Products</p>
                 </a>
             </li>
             <li>
-                <a href="">
+                <a href="{{url('/orders')}}">
                     <i class="ti-calendar"></i>
                     <p>Orders</p>
                 </a>
