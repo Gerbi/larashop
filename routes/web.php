@@ -4,3 +4,6 @@ Route::get('/', 'DashboardController@index');
 
 //Products
 Route::resource('/products','ProductController');
+
+//orders
+Route::resource('/orders','OrderController');
