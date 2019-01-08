@@ -8,6 +8,9 @@
     <div class="row">
 
         <div class="col-md-12">
+
+            @include('admin.layouts.message')
+
             <div class="card">
                 <div class="header">
                     <h4 class="title">Orders</h4>
@@ -26,8 +29,9 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
+
                             @foreach ($orders as $order)
+                                <tr>
                                 <td>{{$order->id}}</td>
                                 <td>{{$order->user->name}}</td>
                                 <td>
@@ -47,16 +51,18 @@
                                         <span class="label label-warning">Pending</span>
                                     @endif
                                 </td>
-                                <td><span class="label label-success">Confirmed</span></td>
                                 <td>
-                                    <button class="btn btn-sm btn-success ti-close"
-                                            title="Cancel Order"></button>
+                                    @if ($order->status)
+                                        {{link_to_route('order.pending','Pending', $order->id,['class'=>'btn btn-warning btn-sm'])}}
 
-                                    <button class="btn btn-sm btn-primary ti-view-list-alt"
-                                            title="Details"></button>
+                                    @else
+                                    {{link_to_route('order.confirm','Confirm', $order->id,['class'=>'btn btn-success btn-sm'])}}
+{{--                                    {{link_to_route('order.show','Details', $order->id,['class'=>'btn btn-warning btn-sm'])}}--}}
+                                    @endif
                                 </td>
-                            @endforeach
                         </tr>
+                            @endforeach
+
 
 
 
