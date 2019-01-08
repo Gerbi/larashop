@@ -15,13 +15,13 @@
                 </a>
             </li>
             <li>
-                <a href="">
+                <a href="{{url('products/create')}}">
                     <i class="ti-archive"></i>
                     <p>Add Product</p>
                 </a>
             </li>
             <li>
-                <a href="">
+                <a href="{{url('products')}}">
                     <i class="ti-view-list-alt"></i>
                     <p>View Products</p>
                 </a>
