@@ -18,11 +18,13 @@
 
     {{ Html::style('assets/css/paper-dashboard.css') }}
 
-    {{ Html::style('assets/css') }}<link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    {{ Html::style('http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css') }}
 
-    {{ Html::style('assets/css') }}<link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
+    {{ Html::style('https://fonts.googleapis.com/css?family=Muli:400,300') }}
 
     {{ Html::style('assets/css/themify-icons.css') }}
+
+    {{ Html::style('assets/css/style.css') }}
 
 </head>
 <body>
@@ -69,6 +71,7 @@
 
             </div>
         </div>
+
         <footer class="footer">
             <div class="container-fluid">
                 <nav class="pull-left">
@@ -107,4 +110,5 @@
 
 {{ Html::script('assets/js/jquery-1.10.2.js') }}
 {{ Html::script('assets/js/bootstrap.min.js') }}
+{{ Html::script('assets/js/script.js') }}
 </html>

@@ -12,3 +12,4 @@ yarn-error.log
 /.idea
 tests
 /database/migrations
+/public/uploads
