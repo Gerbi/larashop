@@ -35,5 +35,9 @@ Route::prefix('admin')->group(function ()
  */
 Route::get('/','Fronted\HomeController@index');
 
+//user register
+Route::get('/user/register','Fronted\RegistrationController@index');
+Route::post('/user/register','Fronted\RegistrationController@store');
+
 
 

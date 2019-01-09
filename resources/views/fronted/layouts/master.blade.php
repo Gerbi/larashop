@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8"/>
-    <link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicon.png">
+    <link rel="icon" type="svg" sizes="96x96" href="assets/img/laravel-brands.svg">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 
     <title>LaraShop Admin</title>
@@ -10,7 +10,7 @@
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'/>
     <meta name="viewport" content="width=device-width"/>
 
-        <link rel="stylesheet" href="{{asset('css/app.css')}}">
+    <link rel="stylesheet" href="{{asset('css/app.css')}}">
 
     {{--{{ Html::style('assets/css/bootstrap.min.css') }}--}}
 
@@ -26,12 +26,6 @@
     @include('fronted.layouts.nav')
 <div class="container">
 
-    <header class="jumbotron my-4">
-        <h5 class="display-3"><strong>Welcome,</strong></h5>
-        <p class="display-4"><strong>SALE UPTO 20%</strong></p>
-        <p class="display-4">&nbsp;</p>
-        <a href="#" class="btn btn-warning btn-lg float-right">SHOP NOW!</a>
-    </header>
 
     @yield('content')
     {{--Page features--}}
