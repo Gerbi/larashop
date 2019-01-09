@@ -21,7 +21,7 @@ Route::prefix('admin')->group(function ()
 
 
         //logout
-        Route::get('logout','AdminUserController@logout');
+        Route::get('/logout','AdminUserController@logout');
     });
 
     //login

@@ -46,7 +46,7 @@
                     <div class="panel-body">
 
                         @if ($errors->any())
-                            <div class=" alert alert-danger">
+                            <div class="alert alert-danger">
                                 <ul>
                                     @foreach($errors->all() as $error)
                                         <li>
@@ -55,6 +55,11 @@
                                         @endforeach
                                 </ul>
                             </div>
+                        @endif
+
+                        @if (session()->has('msg'))
+                            <div class="alert alert-success">{{session()->get('msg')}}</div>
+
                         @endif
                         <form method="post" action="/admin/login">
 

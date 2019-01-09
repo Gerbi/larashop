@@ -39,4 +39,13 @@ class AdminUserController extends Controller
 
     }
 
+    public function logout()
+    {
+        auth()->guard('admin')->logout();
+
+        session()->flash('msg','You have been logged out');
+
+        return redirect('/admin/login');
+    }
+
 }
