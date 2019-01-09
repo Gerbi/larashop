@@ -17,7 +17,7 @@
 
                 <div class="content">
 
-                    {!! Form::open(['url' => ['products',$product->id],'files'=>'true','method'=>'PUT']) !!}
+                    {!! Form::open(['url' => ['admin/products',$product->id],'files'=>'true','method'=>'PUT']) !!}
                     <div class="row">
                         <div class="col-md-12">
 
