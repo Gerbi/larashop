@@ -45,7 +45,20 @@
 
                     <div class="panel-body">
 
-                        <form>
+                        @if ($errors->any())
+                            <div class=" alert alert-danger">
+                                <ul>
+                                    @foreach($errors->all() as $error)
+                                        <li>
+                                            {{$error}}
+                                        </li>
+                                        @endforeach
+                                </ul>
+                            </div>
+                        @endif
+                        <form method="post" action="/admin/login">
+
+                            @csrf
 
                             <div class="form-group">
                                 <label for="email">Email:</label>

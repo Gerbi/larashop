@@ -14,7 +14,7 @@ Route::get('/pending/{id}','OrderController@pending')->name('order.pending');
 Route::resource('/users','UsersController');
 
 //login
-Route::get('/admin/login', function ()
-{
-   return view('admin/login');
-});
+Route::get('/admin/login', 'AdminUserController@index');
+Route::post('/admin/login', 'AdminUserController@store');
+
+
