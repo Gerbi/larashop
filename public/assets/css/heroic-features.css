@@ -14,7 +14,7 @@ body {
 
 .jumbotron {
     margin-bottom: 0;
-    /*background-image: url(../images/banner.jpg);*/
+    background-image: url(../img/banner.jpg);
     background-position: 0% 25%;
     background-size: cover;
     background-repeat: no-repeat;
@@ -23,7 +23,8 @@ body {
 }
 
 .navbar {
-    background: #4A5680 !important;
+    /*background: #4A5680 !important;*/
+    background: #4fc08d !important;
 }
 
 .nav-link {
