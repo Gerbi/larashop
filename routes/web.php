@@ -2,22 +2,31 @@
 
 Route::prefix('admin')->group(function ()
 {
-    Route::get('/', 'DashboardController@index');
+    Route::middleware('auth:admin')->group(function ()
+    {
 
-//Products
-    Route::resource('/products','ProductController');
+        //Dashboard
+        Route::get('/', 'DashboardController@index');
 
-//orders
-    Route::resource('/orders','OrderController');
-    Route::get('/confirm/{id}','OrderController@confirm')->name('order.confirm');
-    Route::get('/pending/{id}','OrderController@pending')->name('order.pending');
+        //Products
+        Route::resource('/products','ProductController');
 
-//users
-    Route::resource('/users','UsersController');
+        //orders
+        Route::resource('/orders','OrderController');
+        Route::get('/confirm/{id}','OrderController@confirm')->name('order.confirm');
+        Route::get('/pending/{id}','OrderController@pending')->name('order.pending');
 
-//login
-    Route::get('/admin/login', 'AdminUserController@index');
-    Route::post('/admin/login', 'AdminUserController@store');
+        //users
+        Route::resource('/users','UsersController');
+
+
+        //logout
+        Route::get('logout','AdminUserController@logout');
+    });
+
+    //login
+    Route::get('/login', 'AdminUserController@index');
+    Route::post('/login', 'AdminUserController@store');
 
 });
 
