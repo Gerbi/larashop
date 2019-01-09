@@ -33,7 +33,7 @@ Route::prefix('admin')->group(function ()
 /*
  * Fronted Routes
  */
-
+Route::get('/','Fronted\HomeController@index');
 
 
 
