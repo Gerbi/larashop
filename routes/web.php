@@ -39,6 +39,10 @@ Route::get('/','Fronted\HomeController@index');
 Route::get('/user/register','Fronted\RegistrationController@index');
 Route::post('/user/register','Fronted\RegistrationController@store');
 
+//User Login
+Route::get('/user/login','Fronted\SessionController@index');
+Route::post('/user/login','Fronted\SessionController@store');
+
 Route::get('/user/profile', function () {
     return 'Welcome = user';
 });

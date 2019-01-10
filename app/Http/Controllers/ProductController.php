@@ -48,7 +48,7 @@ class ProductController extends Controller
 
         ]);
 
-        //session message
+        //sessions message
         $request->session()->flash('msg','Your product has been added');
 
         //redirect
@@ -116,7 +116,7 @@ class ProductController extends Controller
             'image' => $product->image
         ]);
 
-        //store a image session
+        //store a image sessions
         $request->session()->flash('msg','Product has been updated');
 
         //redirect
