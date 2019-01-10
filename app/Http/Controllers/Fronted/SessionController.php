@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Fronted;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class SessionController extends Controller
 {
@@ -24,7 +25,7 @@ class SessionController extends Controller
 
         //check if exist
         $data = request(['email','password']);
-        if (! auth()->attempt($data))
+        if (! Auth()->attempt($data))
         {
             return back()->withErrors([
                 'message' => 'Wrong credentials please try again'
@@ -33,5 +34,14 @@ class SessionController extends Controller
 
         //redirect to
         return redirect('/user/profile');
+    }
+
+    public function logout()
+    {
+        Auth()->logout();
+
+        session()->flash('msg','You have been logged out successfully');
+
+        return redirect('/user/login');
     }
 }

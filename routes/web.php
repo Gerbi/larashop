@@ -43,6 +43,9 @@ Route::post('/user/register','Fronted\RegistrationController@store');
 Route::get('/user/login','Fronted\SessionController@index');
 Route::post('/user/login','Fronted\SessionController@store');
 
+//logout
+Route::get('/user/logout','Fronted\SessionController@logout');
+
 Route::get('/user/profile', function () {
     return 'Welcome = user';
 });

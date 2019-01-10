@@ -22,6 +22,13 @@
                         </div>
 
                     @endif
+
+                    @if (session()->has('msg'))
+                        <div class="alert alert-success">
+                            {{session()->get('msg')}}
+                        </div>
+                    @endif
+
                     <form action="/user/login" method="post">
 
                         @csrf

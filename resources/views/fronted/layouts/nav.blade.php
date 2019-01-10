@@ -14,7 +14,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-item nav-link dropdown-toggle mr-md-2" href="#" id="bd-versions"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fa fa-user"></i> {{ auth()->check() ? auth()->user()->name : 'Account'}}
+                        <i class="fa fa-user"></i> {{ Auth()->check() ? Auth()->user()->name : 'Account'}}
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="bd-versions">
                         @if (!auth()->check())
