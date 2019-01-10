@@ -8,6 +8,11 @@ use Illuminate\Support\Facades\Auth;
 
 class SessionController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('guest')->except('logout');
+    }
+
     public function index()
     {
         return view('fronted.sessions.index');
