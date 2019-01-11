@@ -22,8 +22,17 @@
                     </div>
                     <div class="card-footer">
                         <strong>{{$product->price}}</strong>&nbsp; &nbsp;
-                        <a href="#" class="btn btn-primary btn-outline-dark"><i class="fa fa-cart-plus "></i> Add To
-                            Cart</a>
+                        <form action="{{route('cart')}}" method="post">
+                            @csrf
+                            <input type="hidden" name="id" value="{{$product->id}}">
+                            <input type="hidden" name="name" value="{{$product->name}}">
+                            <input type="hidden" name="price" value="{{$product->price}}">
+
+                             <button type="submit" href="#" class="btn btn-primary btn-outline-dark">
+                                 <i class="fa fa-cart-plus "></i> Add To
+                                    Cart</button>
+                        </form>
+
                     </div>
                 </div>
             </div>
