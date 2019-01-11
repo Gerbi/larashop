@@ -37,13 +37,13 @@ return [
 
     'guards' => [
         'web' => [
-            'driver' => 'sessions',
+            'driver' => 'session',
             'provider' => 'users',
         ],
 
         // Add config
         'admin' => [
-            'driver' => 'sessions',
+            'driver' => 'session',
             'provider' => 'admins',
         ],
 

@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers\Fronted;
 
-use http\Client\Curl\User;
+use App\Order;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -12,6 +13,13 @@ class UserProfileController extends Controller
     {
         $id = auth()->user()->id;
         $user = User::where('id',$id)->first();
-        return view('fronted.profile.index', compact($user));
+        $orders = Order::where('user)id',$id);
+        return view('fronted.profile.index', compact('user','orders'));
+    }
+
+    public function show($id)
+    {
+        dd($id);
+
     }
 }
