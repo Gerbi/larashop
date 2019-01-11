@@ -49,6 +49,10 @@ Route::get('/user/logout','Fronted\SessionController@logout');
 Route::get('/user/profile', 'Fronted\UserProfileController@index');
 Route::get('/user/order/{id}', 'Fronted\UserProfileController@show');
 
+//cart section
+Route::get('/cart','Fronted\CartController@index');
+Route::post('/cart','Fronted\CartController@store')->name('cart');
+
 
 
 
