@@ -2,7 +2,7 @@
 
 Route::prefix('admin')->group(function ()
 {
-    Route::middleware('auth:admin')->group(function ()
+    Route::middleware('auth:admin')->group(function()
     {
 
         //Dashboard
@@ -46,7 +46,8 @@ Route::post('/user/login','Fronted\SessionController@store');
 //logout
 Route::get('/user/logout','Fronted\SessionController@logout');
 
-Route::get('/user/profile', 'Fronted\SessionController@index');
+Route::get('/user/profile', 'Fronted\UserProfileController@index');
+Route::get('/user/order/{id}', 'Fronted\UserProfileController@show');
 
 
 
