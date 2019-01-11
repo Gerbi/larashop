@@ -1,13 +1,7 @@
 @extends('fronted.layouts.master')
 
-@section('page')
-    Registration
-@stop
-
 @section('content')
     <div class="row">
-        {{--Jumbotron header--}}
-
 
         <div class="col-md-12" id="register">
 
@@ -22,7 +16,6 @@
                                     <li>{{$error}}</li>
                                 @endforeach
                             </ul>
-
                         </div>
 
                     @endif
