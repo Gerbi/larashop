@@ -52,6 +52,7 @@ Route::get('/user/order/{id}', 'Fronted\UserProfileController@show');
 //cart section
 Route::get('/cart','Fronted\CartController@index');
 Route::post('/cart','Fronted\CartController@store')->name('cart');
+Route::delete('/cart/remove/{product}','Fronted\CartController@destroy')->name('cart.destroy');
 
 Route::get('empty', function() {
     Cart::instance('default')->destroy();

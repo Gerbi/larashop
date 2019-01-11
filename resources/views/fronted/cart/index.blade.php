@@ -30,7 +30,12 @@
 
                             <td>
 
-                                <a href="">Remove</a><br>
+                                <form action="{{route('cart.destroy',$item->rowId)}}" method="post">
+                                    @csrf
+                                    @method('delete')
+                                    <button type="submit" class="btn btn-link btn-dark" href="">Remove</button>
+                                </form>
+
                                 <a href="">Save for later</a>
 
                             </td>
@@ -83,6 +88,10 @@
                     <hr>
 
                 </div>
+                @else
+                    <h3>There is not item in your Cart</h3>
+                    <a href="/" class="btn btn-outline-dark">Continue Shopping</a>
+                    <hr>
         @endif
                 <div class="col-md-12">
 

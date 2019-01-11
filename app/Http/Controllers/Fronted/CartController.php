@@ -22,4 +22,12 @@ class CartController extends Controller
 
     }
 
+    public function destroy($id)
+    {
+        Cart::remove($id);
+
+        return redirect()->back()->with('msg','Item has been removed from cart');
+
+    }
+
 }
