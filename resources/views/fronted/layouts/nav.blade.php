@@ -8,11 +8,15 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fa fa-shopping-cart"></i> Cart <strong>(23)</strong>
+                    <a class="nav-link" href="#">
+                        <i class="fa fa-shopping-cart"></i> Cart
+                        @if (Cart::instance('default')->count() >0)
+                            <strong>{{Cart::instance('default')->count()}}</strong>
+                        @endif
                     </a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-item nav-link dropdown-toggle mr-md-2" href="#" id="bd-versions"
+                    <a class="nav-item nav-link dropdown-toggle mr-md-2" href="{{url('/cart')}}" id="bd-versions"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fa fa-user"></i> {{ auth()->check() ? auth()->user()->name : 'Account' }}
                     </a>

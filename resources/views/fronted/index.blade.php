@@ -8,7 +8,16 @@
         <a href="#" class="btn btn-warning btn-lg float-right">SHOP NOW!</a>
     </header>
 
+    @if (session()->has('msg'))
+        <div class="alert alert-success">
+            {{session()->get('msg')}}
+        </div>
+
+    @endif
+
     <div class="row text-center">
+
+
 
         @foreach($products as $product)
             <div class="col-lg-3 col-md-6 mb-4">
