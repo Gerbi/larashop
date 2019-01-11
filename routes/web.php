@@ -53,6 +53,7 @@ Route::get('/user/order/{id}', 'Fronted\UserProfileController@show');
 Route::get('/cart','Fronted\CartController@index');
 Route::post('/cart','Fronted\CartController@store')->name('cart');
 Route::delete('/cart/remove/{product}','Fronted\CartController@destroy')->name('cart.destroy');
+Route::post('/cart/saveLater/{product}','Fronted\CartController@saveLater')->name('cart.saveLater');
 
 Route::get('empty', function() {
     Cart::instance('default')->destroy();

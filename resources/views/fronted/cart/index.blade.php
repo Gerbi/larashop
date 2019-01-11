@@ -33,10 +33,13 @@
                                 <form action="{{route('cart.destroy',$item->rowId)}}" method="post">
                                     @csrf
                                     @method('delete')
-                                    <button type="submit" class="btn btn-link btn-dark" href="">Remove</button>
+                                    <button type="submit" class="btn btn-outline-dark" href="">Remove</button>
                                 </form>
 
-                                <a href="">Save for later</a>
+                                <form action="{{ route('cart.saveLater', $item->rowId) }}" method="post">
+                                    @csrf
+                                    <button type="submit" class="btn btn-link btn-link-dark">Save for later</button>
+                                </form>
 
                             </td>
 
@@ -92,88 +95,57 @@
                     <h3>There is not item in your Cart</h3>
                     <a href="/" class="btn btn-outline-dark">Continue Shopping</a>
                     <hr>
-        @endif
+                @endif
+
+
+                @if (Cart::instance('saveForLater')->count() > 0 )
+
                 <div class="col-md-12">
 
-                    <h4>2 items Save for Later</h4>
+                    <h4>{{Cart::instance('saveForLater')->count()}} items Save for Later</h4>
                     <table class="table">
-
                         <tbody>
 
-                        <tr>
-                            <td><img src="" style="width: 5em"></td>
-                            <td>
-                                <strong>Mac</strong><br> This is some text for the product
-                            </td>
+                        @foreach(Cart::instance('saveForLater')->content() as $item)
+                            <tr>
+                                <td><img src="{{url('/uploads').'/'.$item->model->image}}" style="width: 5em"></td>
+                                <td>
+                                    <strong>{{$item->model->name}}</strong><br>{{$item->model->description}}
+                                </td>
 
-                            <td>
+                                <td>
 
-                                <a href="">Remove</a><br>
-                                <a href="">Save for later</a>
+                                    {{--<form action="{{route('cart.destroy',$item->rowId)}}" method="post">--}}
+                                        {{--@csrf--}}
+                                        {{--@method('delete')--}}
+                                        <button type="submit" class="btn btn-link btn-outline-dark" href="">Remove</button>
+                                    {{--</form>--}}
 
-                            </td>
+                                    {{--<form action="{{route('cart.saveForLater', $item->rowId)}}" method="post">--}}
+                                        {{--@csrf--}}
+                                        <button type="submit" class="btn btn-link btn-outline-dark">Move to cart</button>
+                                    {{--</form>--}}
 
-                            <td>
-                                <select name="" id="" class="form-control" style="width: 4.7em">
-                                    <option value="">1</option>
-                                    <option value="">2</option>
-                                </select>
-                            </td>
+                                </td>
 
-                            <td>$233</td>
-                        </tr>
+                                <td>
+                                    <select name="" id="" class="form-control" style="width: 4.7em">
+                                        <option value="">1</option>
+                                        <option value="">2</option>
+                                    </select>
+                                </td>
 
-                        <tr>
-                            <td><img src="images/01.jpg" style="width: 5em"></td>
-                            <td>
-                                <strong>Laptop</strong><br> This is some text for the product
-                            </td>
+                                <td>{{$item->total()}}</td>
+                            </tr>
 
-                            <td>
-
-                                <a href="">Remove</a><br>
-                                <a href="">Save for later</a>
-
-                            </td>
-
-                            <td>
-                                <select name="" id="" class="form-control" style="width: 4.7em">
-                                    <option value="">1</option>
-                                    <option value="">2</option>
-                                </select>
-                            </td>
-
-                            <td>$233</td>
-                        </tr>
-
-                        <tr>
-                            <td><img src="images/12.jpg" style="width: 5em"></td>
-                            <td>
-                                <strong>Laptop</strong><br> This is some text for the product
-                            </td>
-
-                            <td>
-
-                                <a href="">Remove</a><br>
-                                <a href="">Save for later</a>
-
-                            </td>
-
-                            <td>
-                                <select name="" id="" class="form-control" style="width: 4.7em">
-                                    <option value="">1</option>
-                                    <option value="">2</option>
-                                </select>
-                            </td>
-
-                            <td>$233</td>
-                        </tr>
-
+                        @endforeach
                         </tbody>
 
                     </table>
 
                 </div>
+
+                @endif
             </div>
         </div>
 @stop
