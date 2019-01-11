@@ -30,11 +30,8 @@
         </tr>
     </table>
 
-    <div class="card">
-        <div class="card-header">
-            <h4 class="title">Orders</h4>
-            <p class="category">List of all orders</p>
-        </div>
+        <h4 class="title">Orders</h4>
+        <hr>
         <div class="content table-responsive table-full-width">
             <table class="table table-striped">
                 <thead>
@@ -76,12 +73,9 @@
                         </td>
                     </tr>
                 @endforeach
-
-
                 </tbody>
             </table>
 
         </div>
-    </div>
 
 @stop
