@@ -108,20 +108,23 @@
 
                         @foreach(Cart::instance('saveForLater')->content() as $item)
                             <tr>
-                                <td><img src="{{url('/uploads').'/'.$item->model->image}}" style="width: 5em"></td>
                                 <td>
-                                    <strong>{{$item->model->name}}</strong><br>{{$item->model->description}}
+                                    <img src="{{url('/uploads').'/'.$item->model->image}}" style="width: 5em">
+                                </td>
+                                <td>
+                                    <strong>{{$item->model->name}}</strong>
+                                    <br>{{$item->model->description}}
                                 </td>
 
                                 <td>
 
-                                    {{--<form action="{{route('cart.destroy',$item->rowId)}}" method="post">--}}
-                                        {{--@csrf--}}
-                                        {{--@method('delete')--}}
+                                    <form action="{{route('saveLater.destroy',$item->rowId)}}" method="post">
+                                        @csrf
+                                        @method('delete')
                                         <button type="submit" class="btn btn-link btn-outline-dark" href="">Remove</button>
-                                    {{--</form>--}}
+                                    </form>
 
-                                    {{--<form action="{{route('cart.saveForLater', $item->rowId)}}" method="post">--}}
+{{--                                    <form action="{{route('cart.saveForLater', $item->rowId)}}" method="post">--}}
                                         {{--@csrf--}}
                                         <button type="submit" class="btn btn-link btn-outline-dark">Move to cart</button>
                                     {{--</form>--}}
