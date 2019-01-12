@@ -89,7 +89,6 @@
                     <a href="/" class="btn btn-outline-dark">Continue Shopping</a>
                     <a href="/checkout" class="btn btn-outline-info">Proceed to checkout</a>
                     <hr>
-
                 </div>
                 @else
                     <h3>There is not item in your Cart</h3>
@@ -124,10 +123,10 @@
                                         <button type="submit" class="btn btn-link btn-outline-dark" href="">Remove</button>
                                     </form>
 
-{{--                                    <form action="{{route('cart.saveForLater', $item->rowId)}}" method="post">--}}
-                                        {{--@csrf--}}
+                                    <form action="{{route('moveToCart', $item->rowId)}}" method="post">
+                                        @csrf
                                         <button type="submit" class="btn btn-link btn-outline-dark">Move to cart</button>
-                                    {{--</form>--}}
+                                    </form>
 
                                 </td>
 
