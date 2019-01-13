@@ -33,7 +33,7 @@
                                 <form action="{{route('cart.destroy',$item->rowId)}}" method="post">
                                     @csrf
                                     @method('delete')
-                                    <button type="submit" class="btn btn-outline-dark" href="">Remove</button>
+                                    <button type="submit" class="btn btn-link btn-link-dark" href="">Remove</button>
                                 </form>
 
                                 <form action="{{ route('cart.saveLater', $item->rowId) }}" method="post">
@@ -120,12 +120,12 @@
                                     <form action="{{route('saveLater.destroy',$item->rowId)}}" method="post">
                                         @csrf
                                         @method('delete')
-                                        <button type="submit" class="btn btn-link btn-outline-dark" href="">Remove</button>
+                                        <button type="submit" class="btn btn-link btn-link-dark" href="">Remove</button>
                                     </form>
 
                                     <form action="{{route('moveToCart', $item->rowId)}}" method="post">
                                         @csrf
-                                        <button type="submit" class="btn btn-link btn-outline-dark">Move to cart</button>
+                                        <button type="submit" class="btn btn-link btn-link-dark">Move to cart</button>
                                     </form>
 
                                 </td>
