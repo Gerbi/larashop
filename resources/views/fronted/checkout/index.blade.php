@@ -71,28 +71,22 @@
                     <th>Details</th>
                     <th>Qty</th>
                 </tr>
+
+                @foreach(Cart::instance('default')->content() as $item)
                 <tr>
-                    <td><img src="images/01.jpg" alt="" style="width: 4em"></td>
+                    <td><img src="{{url('/uploads').'/'.$item->model->image}}" alt="" style="width: 4em"></td>
                     <td>
-                        <strong>Yoga pro</strong><br>
-                        this is some text for the product <br>
-                        <span class="text-dark">$355.00</span>
+                        <strong>{{$item->model->name}}</strong>
+                        <br>
+                        {{$item->model->description}}<br>
+                        <span class="text-dark">{{$item->total()}}</span>
                     </td>
                     <td>
-                        <span class="badge badge-light">1</span>
+                        <span class="badge badge-light">{{$item->quantity}}</span>
                     </td>
                 </tr>
-                <tr>
-                    <td><img src="images/01.jpg" alt="" style="width: 4em"></td>
-                    <td>
-                        <strong>Yoga pro</strong><br>
-                        this is some text for the product <br>
-                        <span class="text-dark">$355.00</span>
-                    </td>
-                    <td>
-                        <span class="badge badge-light">1</span>
-                    </td>
-                </tr>
+                    @endforeach
+
             </table>
 
             <hr>
@@ -102,15 +96,15 @@
                 </tr>
                 <tr>
                     <td>Subtotal</td>
-                    <td>$1200</td>
+                    <td>${{ Cart::subtotal()}}</td>
                 </tr>
                 <tr>
                     <td>Tax</td>
-                    <td>$0</td>
+                    <td>${{ Cart::tax()}}</td>
                 </tr>
                 <tr>
                     <th>Total</th>
-                    <th>1200</th>
+                    <th>${{ Cart::total()}}</th>
                 </tr>
 
             </table>
