@@ -23,6 +23,8 @@
 
 {{--    {{ Html::style('https://fonts.googleapis.com/css?family=Muli:400,300') }}--}}
 
+    @yield('style')
+
 </head>
 <body>
     @include('fronted.layouts.nav')
@@ -31,7 +33,6 @@
 
     @yield('content')
     {{--Page features--}}
-
 
 </div>
 

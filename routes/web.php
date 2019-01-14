@@ -61,6 +61,7 @@ Route::post('/cart/moveToCart/{product}','Fronted\SaveLaterController@moveToCart
 
 //checkout
 route::get('/checkout','Fronted\CheckoutController@index');
+route::post('/checkout','Fronted\CheckoutController@store')->name('checkout');
 
 Route::get('empty', function() {
     Cart::instance('default')->destroy();
