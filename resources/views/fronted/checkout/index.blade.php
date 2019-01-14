@@ -60,7 +60,7 @@
 
                 <div class="form-group">
                     <label for="name_card">Name on card</label>
-                    <input type="text" class="form-control" id="name_card" placeholder="Name on card">
+                    <input type="text" class="form-control" name="name_on_card" id="name_card" placeholder="Name on card">
                 </div>
 
                 <div class="form-group">
@@ -186,7 +186,7 @@
             event.preventDefault();
 
             var options = {
-                name: document.getElementById("name_card").value,
+                name: document.getElementById("name_On_card").value,
                 address_line_1: document.getElementById("address").value,
                 address_city: document.getElementById("city").value,
                 address_state:document.getElementById("province").value,
