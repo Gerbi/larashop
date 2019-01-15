@@ -13,16 +13,15 @@
 
         <div class="col-md-7">
 
-            @if (session()->has*'msg')
+            @if (session()->has('msg'))
                 <div class="alert alert-success">
                     {{session()->get('msg')}}
                 </div>
             @endif
 
             <h4>Billing Details</h4>
-
-            <form method="post" id="payment-form" action="{{route('checkout')}}">
-                @csrf
+            <form method="post" id="payment-form" action="{{ route('checkout') }}">
+                    @csrf
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="email">Email</label>
@@ -30,7 +29,7 @@
                     </div>
                     <div class="form-group col-md-6">
                         <label for="name">Name</label>
-                        <input type="text" class="form-control" id="name" name="password" placeholder="Password">
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Name">
                     </div>
                 </div>
                 <div class="form-group">
@@ -43,7 +42,7 @@
                         <input type="text" class="form-control" id="city" name="city" placeholder="City">
                     </div>
                     <div class="form-group col-md-4">
-                        <label for="province">Provance</label>
+                        <label for="province">Province</label>
                         <input type="text" class="form-control" id="province" name="province" placeholder="Province">
                     </div>
                     <div class="form-group col-md-3">
@@ -55,14 +54,12 @@
                     <label for="phone">Phone</label>
                     <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone">
                 </div>
-                <hr>
-                <h5><i class="fa fa-credit-card"></i> Payment Details</h5>
-
+                    <hr>
+                    <h5><i class="fa fa-credit-card"></i> Payment Details</h5>
                 <div class="form-group">
                     <label for="name_card">Name on card</label>
-                    <input type="text" class="form-control" name="name_on_card" id="name_card" placeholder="Name on card">
+                    <input type="text" class="form-control" name="name_on_card" id="name_on_card" placeholder="Name on card">
                 </div>
-
                 <div class="form-group">
                     <label for="card-element">
                         Credit or debit card
@@ -77,6 +74,7 @@
 
                 <button type="submit" class="btn btn-outline-info col-md-12">Complete Order</button>
             </form>
+
         </div>
 
         <div class="col-md-5">
@@ -137,7 +135,7 @@
 @section('script')
     <script>
         // Create a Stripe client.
-        var stripe = Stripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
+        var stripe = Stripe('pk_test_WB0GlimeMufAmQrBJUXnd0KK');
 
         // Create an instance of Elements.
         var elements = stripe.elements();
@@ -186,7 +184,7 @@
             event.preventDefault();
 
             var options = {
-                name: document.getElementById("name_On_card").value,
+                name: document.getElementById("name_on_card").value,
                 address_line_1: document.getElementById("address").value,
                 address_city: document.getElementById("city").value,
                 address_state:document.getElementById("province").value,

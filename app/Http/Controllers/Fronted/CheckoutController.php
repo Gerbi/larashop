@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Fronted;
 
 use Cartalyst\Stripe\Laravel\Facades\Stripe;
-use Gloudemans\Shoppingcart\Cart;
+use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
