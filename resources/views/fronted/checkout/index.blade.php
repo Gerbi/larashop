@@ -132,6 +132,7 @@
 
 @endsection
 
+
 @section('script')
     <script>
         // Create a Stripe client.

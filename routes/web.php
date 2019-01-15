@@ -52,6 +52,7 @@ Route::get('/user/order/{id}', 'Fronted\UserProfileController@show');
 //cart section
 Route::get('/cart','Fronted\CartController@index');
 Route::post('/cart','Fronted\CartController@store')->name('cart');
+Route::patch('/cart/update/{product}','Fronted\CartController@update')->name('cart.update');
 Route::delete('/cart/remove/{product}','Fronted\CartController@destroy')->name('cart.destroy');
 Route::post('/cart/saveLater/{product}','Fronted\CartController@saveLater')->name('cart.saveLater');
 

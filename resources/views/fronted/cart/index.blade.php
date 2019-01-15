@@ -6,7 +6,7 @@
 
         @if (Cart::instance('default')->count() > 0)
 
-        <h4 class="mt-5">4 items(s) in Shopping Cart</h4>
+        <h4 class="mt-5">{{ Cart::instance('default')->count() }} items(s) in Shopping Cart</h4>
 
         <div class="cart-items">
 
@@ -17,6 +17,10 @@
                     @if (session()->has('msg'))
                         <div class="alert alert-success">{{session()->get('msg')}}</div>
                     @endif
+
+                        @if (session()->has('errors'))
+                            <div class="alert alert-warning">{{session()->get('errors')}}</div>
+                        @endif
 
                     <table class="table">
                         <tbody>
@@ -44,9 +48,10 @@
                             </td>
 
                             <td>
-                                <select name="" id="" class="form-control" style="width: 4.7em">
-                                    <option value="">1</option>
-                                    <option value="">2</option>
+                                <select name="" id="" class="form-control quantity" data-id="{{$item->rowId}}" style="width: 4.7em">
+                                    @for ($i = 1; $i < 5 + 1; $i++)
+                                        <option {{ $item->qty == $i ? 'selected' : '' }}>{{$i}}</option>
+                                    @endfor
                                 </select>
                             </td>
 
@@ -150,4 +155,29 @@
                 @endif
             </div>
         </div>
+@stop
+
+@section('script')
+    <script src="{{ asset('js/app.js') }}"></script>
+    <script>
+        const className = document.querySelectorAll('.quantity');
+
+        Array.from(className).forEach(function (el) {
+            el.addEventListener('change', function () {
+                const id = el.getAttribute('data-id');
+
+                axios.patch(`/cart/update/${id}`, {
+                    quantity: this.value
+                })
+                    .then(function (response) {
+                        location.reload();
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                        location.reload();
+                    });
+            })
+        })
+
+    </script>
 @stop
