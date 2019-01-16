@@ -9,12 +9,12 @@
         <div class="col-md-12">
             @include('admin.layouts.message')
             <div class="card">
-                <div class="header">
+                <div class="card-header text-center" style="border-bottom-width: 0px;">
                     <h4 class="title">All Products</h4>
                     <p class="category">List of all stock</p>
                 </div>
-                <div class="content table-responsive table-full-width">
-                    <table class="table table-striped">
+                <div class="card-body table-responsive table-full-width">
+                    <table class="table table-hover table-borderless">
                         <thead>
                         <tr>
                             <th>ID</th>

@@ -9,42 +9,62 @@
 
         <div class="col-md-12">
             <div class="card">
-                <div class="header">
+                <div class="card-header text-center" style="border-bottom-width: 0px;">
                     <h4 class="title">{{$orders[0]->user->name}} | Order Details</h4>
                     <p class="category">List of all registered users</p>
                 </div>
-                <div class="content table-responsive table-full-width">
-                    <table class="table table-striped">
+                <div class="card-body table-responsive table-full-width">
+                    <table class="table table-hover table-borderless">
                         <thead>
-                        <tr>
-                            <th>Order ID</th>
-                            <th>Product Name</th>
-                            <th>Address</th>
-                            <th>Quantity</th>
-                            <th>Total Price</th>
-                            <th>Order Date</th>
-                            <th>Status</th>
-                        </tr>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Product Name</th>
+                                <th>Quantity</th>
+                                <th>Total Price</th>
+                                <th>Status</th>
+                            </tr>
                         </thead>
                         <tbody>
-                        @foreach($orders as $order)
+                            @foreach($orders as $order)
+                                <tr>
+                                    <td>{{$order->id}}</td>
+                                    <td>
+                                        @foreach($order->products as $item)
+                                            <table class="table">
+                                                <tr>
+                                                    <td>{{$item->name}}</td>
+                                                </tr>
+                                            </table>
+                                        @endforeach
+                                    </td>
 
-                            <tr>
-                                <td>{{$order->id}}</td>
-                                <td>{{$order->products[0]->name}}</td>
-                                <td>{{$order->address}}</td>
-                                <td>{{$order->orderItems[0]->quantity}}</td>
-                                <td>{{$order->orderItems[0]->price}}</td>
-                                <td>{{$order->created_at->diffForHumans()}}</td>
-                                <td>
-                                    @if ($order->status)
-                                        <span for="" class="label label-success">Confirmed</span>
+                                    <td>
+                                        @foreach($order->orderItems as $item)
+                                            <table class="table">
+                                                <tr>
+                                                    <td>{{$item->quantity}}</td>
+                                                </tr>
+                                            </table>
+                                        @endforeach
+                                    </td>
+
+                                    <td>
+                                        @foreach($order->orderItems as $item)
+                                            <table class="table">
+                                                <tr>
+                                                    <td>${{$item->price}}</td>
+                                                </tr>
+                                            </table>
+                                        @endforeach
+                                    </td>
+                                    <td>
+                                        @if($order->status)
+                                            <span class="badge badge-success">Confirmed</span>
                                         @else
-                                        <span for="" class="label label-warning">Pending</span>
-
-                                    @endif
-                                </td>
-                            </tr>
+                                            <span class="badge badge-warning">Pending</span>
+                                        @endif
+                                    </td>
+                                </tr>
                             @endforeach
 
                         </tbody>

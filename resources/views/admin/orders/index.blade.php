@@ -12,12 +12,12 @@
             @include('admin.layouts.message')
 
             <div class="card">
-                <div class="header">
+                <div class="card-header text-center" style="border-bottom-width: 0px;">
                     <h4 class="title">Orders</h4>
                     <p class="category">List of all orders</p>
                 </div>
-                <div class="content table-responsive table-full-width">
-                    <table class="table table-striped">
+                <div class="card-body table-responsive table-full-width">
+                    <table class="table table-hover table-borderless">
                         <thead>
                         <tr>
                             <th>ID</th>
@@ -36,19 +36,29 @@
                                 <td>{{$order->user->name}}</td>
                                 <td>
                                     @foreach($order->products as $item)
-                                        {{$item->name}}
+                                        <table class="table">
+                                            <tr>
+                                                <td>{{$item->name}}</td>
+                                            </tr>
+                                        </table>
+
                                     @endforeach
                                 </td>
                                 <td>
                                     @foreach($order->orderItems as $item)
-                                        {{$item->quantity}}
+                                        <table class="table">
+                                            <tr>
+                                                <td>{{$item->quantity}}</td>
+                                            </tr>
+                                        </table>
+
                                     @endforeach
                                 </td>
                                 <td>
                                     @if ($order->status)
-                                        <span class="label label-success">Confirmed</span>
+                                        <span class="badge badge-success">Confirmed</span>
                                         @else
-                                        <span class="label label-warning">Pending</span>
+                                        <span class="badge badge-warning">Pending</span>
                                     @endif
                                 </td>
                                 <td>
@@ -56,7 +66,7 @@
                                         {{link_to_route('order.pending','Pending', $order->id,['class'=>'btn btn-warning btn-sm'])}}
 
                                     @else
-                                    {{link_to_route('order.confirm','Confirm', $order->id,['class'=>'btn btn-success btn-sm'])}}
+                                        {{link_to_route('order.confirm','Confirm', $order->id,['class'=>'btn btn-success btn-sm'])}}
 
                                     @endif
                                         {{link_to_route('orders.show','Details', $order->id,['class'=>'btn btn-success btn-sm'])}}

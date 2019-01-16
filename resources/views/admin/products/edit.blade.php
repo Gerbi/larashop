@@ -11,11 +11,11 @@
             @include('admin.layouts.message')
 
             <div class="card">
-                <div class="header">
+                <div class="card-header text-center" style="border-bottom-width: 0px;">
                     <h4 class="title">Edit Product</h4>
                 </div>
 
-                <div class="content">
+                <div class="card-body">
 
                     {!! Form::open(['url' => ['admin/products',$product->id],'files'=>'true','method'=>'PUT']) !!}
                     <div class="row">

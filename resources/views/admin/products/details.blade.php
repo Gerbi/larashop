@@ -9,12 +9,12 @@
 
         <div class="col-md-12">
             <div class="card">
-                <div class="header">
+                <div class="card-header text-center" style="border-bottom-width: 0px;">
                     <h4 class="title">Product Detail</h4>
                     <p class="category">List of all stock</p>
                 </div>
-                <div class="content table-responsive table-full-width">
-                    <table class="table table-striped">
+                <div class="card-body table-responsive table-full-width">
+                    <table class="table table-hover table-borderless">
                         <tbody>
 
                         <tr>
@@ -50,7 +50,7 @@
                         <tr>
                             <th>Image</th>
                             <td>
-                                <img src="{{url('uploads').'/'.$product->image}}" alt="" class="img-thumbnail" style="width: 150px;"></td>
+                                <img src="{{url('uploads').'/'.$product->image}}" alt="" class="img-thumbnail border-0" style="width: 150px;"></td>
                         </tr>
 
                         </tbody>

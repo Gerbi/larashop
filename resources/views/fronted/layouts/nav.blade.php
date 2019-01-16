@@ -35,3 +35,21 @@
         </div>
     </div>
 </nav>
+
+<ul class="nav justify-content-center shadow-sm">
+    <li class="nav-item" style="color: #000000">
+        <a class="nav-link"  href="#"><strong>COMPUTER</strong></a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" style="color: gray;" href="#"><strong>SOFTWARE</strong></a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" style="color: #4fc08d;" href="#"><strong>BOY'S FASHION</strong></a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" style="color: #4fc08d;" href="#"><strong>AUTOMOTIVE</strong></a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" style="color: #4fc08d;" href="#"><strong>GAMES</strong></a>
+    </li>
+</ul>

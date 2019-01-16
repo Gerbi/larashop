@@ -7,14 +7,15 @@
 @section('content')
     <div class="row">
 
+
         <div class="col-md-12">
             <div class="card">
-                <div class="header">
+                <div class="card-header text-center" style="border-bottom-width: 0px;">
                     <h4 class="title">Users</h4>
                     <p class="category">List of all registered users</p>
                 </div>
-                <div class="content table-responsive table-full-width">
-                    <table class="table table-striped">
+                <div class="card-body table-responsive table-full-width">
+                    <table class="table table-hover table-borderless">
                         <thead>
                         <tr>
                             <th>ID</th>

@@ -24,7 +24,7 @@ Route::prefix('admin')->group(function ()
         Route::get('/logout','AdminUserController@logout');
     });
 
-    //login
+    //admin login
     Route::get('/login', 'AdminUserController@index');
     Route::post('/login', 'AdminUserController@store');
 
@@ -46,6 +46,7 @@ Route::post('/user/login','Fronted\SessionController@store');
 //logout
 Route::get('/user/logout','Fronted\SessionController@logout');
 
+//profile
 Route::get('/user/profile', 'Fronted\UserProfileController@index');
 Route::get('/user/order/{id}', 'Fronted\UserProfileController@show');
 
@@ -57,7 +58,7 @@ Route::delete('/cart/remove/{product}','Fronted\CartController@destroy')->name('
 Route::post('/cart/saveLater/{product}','Fronted\CartController@saveLater')->name('cart.saveLater');
 
 //Save Later
-Route::delete('/saveForLater/destroy/{product}','Fronted\SaveLaterController@destroy')->name('saveLater.destroy');
+Route::delete('/saveLater/destroy/{product}','Fronted\SaveLaterController@destroy')->name('saveLater.destroy');
 Route::post('/cart/moveToCart/{product}','Fronted\SaveLaterController@moveToCart')->name('moveToCart');
 
 //checkout

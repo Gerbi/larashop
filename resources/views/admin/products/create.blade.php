@@ -6,16 +6,20 @@
 
 @section('content')
     <div class="row">
-        <div class="col-lg-10 col-md-10">
+        <div class="col-lg-10 col-md-10 mx-auto">
 
             @include('admin.layouts.message')
-
+            {{--<nav aria-label="breadcrumb">--}}
+                {{--<ol class="breadcrumb text-center">--}}
+                    {{--<li class="breadcrumb-item active text-center" aria-current="page"><h5>Add Product</h5></li>--}}
+                {{--</ol>--}}
+            {{--</nav>--}}
             <div class="card">
-                <div class="header">
-                    <h4 class="title">Add Product</h4>
+                <div class="card-header text-center" style="border-bottom-width: 0px;">
+                    <h5>Add Product</h5>
                 </div>
 
-                <div class="content">
+                <div class="card-body">
 
                     {!! Form::open(['url' => 'admin/products','files'=>'true']) !!}
                         <div class="row">

@@ -7,7 +7,7 @@
     <div class="row">
         <div class="col-lg-3 col-sm-6">
             <div class="card">
-                <div class="content">
+                <div class="card-body">
                     <div class="row">
                         <div class="col-xs-5">
                             <div class="icon-big icon-warning text-center">
@@ -32,7 +32,7 @@
         </div>
         <div class="col-lg-3 col-sm-6">
             <div class="card">
-                <div class="content">
+                <div class="card-body">
                     <div class="row">
                         <div class="col-xs-5">
                             <div class="icon-big icon-success text-center">
@@ -60,7 +60,7 @@
         </div>
         <div class="col-lg-3 col-sm-6">
             <div class="card">
-                <div class="content">
+                <div class="card-body">
                     <div class="row">
                         <div class="col-xs-5">
                             <div class="icon-big icon-danger text-center">
@@ -88,7 +88,7 @@
         </div>
         <div class="col-lg-3 col-sm-6">
             <div class="card">
-                <div class="content">
+                <div class="card-body">
                     <div class="row">
                         <div class="col-xs-5">
                             <div class="icon-big icon-info text-center">
